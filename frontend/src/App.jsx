@@ -1,11 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import ProtectedRoute from './routes/ProtectedRoutes';
+import CreateCampaign from './pages/CreateCampaign';
+// import CampaignHistory from './pages/CampaignHistory';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <GoogleOAuthProvider clientId="814539083695-2afugjt41r7u9s6i78mg8c6eiqqe6ur2.apps.googleusercontent.com">
-        <App />
-    </GoogleOAuthProvider>
-);
+function App() {
+    return (
+        <ProtectedRoute>
+
+        <Router>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/create-campaign" element={<CreateCampaign />} />
+                {/*<Route path="/campaigns" element={<CampaignHistory />} />*/}
+            </Routes>
+        </Router>
+        </ProtectedRoute>
+    );
+}
+
+export default App;
