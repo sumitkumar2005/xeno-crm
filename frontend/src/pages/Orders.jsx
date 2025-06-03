@@ -18,7 +18,7 @@ export default function Orders() {
                     return;
                 }
 
-                const res = await axios.get("http://localhost:5000/api/orders", {
+                const res = await axios.get("https://xeno-crm-omega.vercel.app/api/orders", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

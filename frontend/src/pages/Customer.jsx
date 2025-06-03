@@ -14,7 +14,7 @@ export default function Customers() {
         const fetchCustomers = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const res = await axios.get("http://localhost:5000/api/customers", {
+                const res = await axios.get("https://xeno-crm-omega.vercel.app/api/customers", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

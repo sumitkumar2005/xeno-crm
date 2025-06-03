@@ -15,7 +15,7 @@ export default function Login() {
             const decoded = jwtDecode(credentialResponse.credential);
             const { email, name, picture } = decoded;
 
-            const res = await axios.post('http://localhost:5000/api/auth/google', {
+            const res = await axios.post('https://xeno-crm-omega.vercel.app/api/auth/google', {
                 email, name, picture,
                 token: credentialResponse.credential
             });

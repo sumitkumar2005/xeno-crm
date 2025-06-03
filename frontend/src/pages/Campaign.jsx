@@ -12,7 +12,7 @@ export default function Campaign() {
         const fetchCampaigns = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const res = await axios.get("http://localhost:5000/api/campaigns", {
+                const res = await axios.get("https://xeno-crm-omega.vercel.app/api/campaigns", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -81,7 +81,7 @@ export default function Campaign() {
         setLogsLoading(true);
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get(`http://localhost:5000/api/logs/${campaignId}`, {
+            const res = await axios.get(`https://xeno-crm-omega.vercel.app/api/logs/${campaignId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

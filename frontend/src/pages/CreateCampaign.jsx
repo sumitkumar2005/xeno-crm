@@ -65,7 +65,7 @@ export default function CreateCampaign() {
                 previewOnly: true
             };
 
-            const res = await axios.post("http://localhost:5000/api/campaigns/preview", payload, {
+            const res = await axios.post("https://xeno-crm-omega.vercel.app/api/campaigns/preview", payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
@@ -124,7 +124,7 @@ export default function CreateCampaign() {
                 message: message.trim(),
             };
 
-            const res = await axios.post("http://localhost:5000/api/campaigns", payload, {
+            const res = await axios.post("https://xeno-crm-omega.vercel.app/api/campaigns", payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
@@ -152,7 +152,7 @@ export default function CreateCampaign() {
             const token = localStorage.getItem("token");
             const validRules = rules.filter(rule => rule.field && rule.operator && rule.value.trim());
 
-            const res = await axios.post("http://localhost:5000/api/ai/get-suggestions", { rules: validRules }, {
+            const res = await axios.post("https://xeno-crm-omega.vercel.app/api/ai/get-suggestions", { rules: validRules }, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
