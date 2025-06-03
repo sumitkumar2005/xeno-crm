@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
+import Login from './pages/Login.jsx';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './routes/ProtectedRoutes';
 import CreateCampaign from './pages/CreateCampaign';
