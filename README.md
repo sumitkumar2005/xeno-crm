@@ -1,221 +1,231 @@
 # Xeno CRM System
 
-A comprehensive Customer Relationship Management system designed to help businesses manage customer data, track orders, and create targeted marketing campaigns.
+A mini full-stack Customer Relationship Management (CRM) platform built to streamline customer insights, order tracking, and personalized marketing campaigns.
 
-## Overview
+---
 
-Xeno CRM is a full-stack application that provides businesses with powerful tools to manage customer relationships, analyze sales data, and execute targeted marketing campaigns. The system enables businesses to filter customers based on specific criteria and create personalized communication strategies.
+## 🚀 Overview
 
-## System Architecture
+Xeno CRM empowers businesses to:
 
-The application follows a modern client-server architecture:
+* Manage and analyze customer data
+* Launch targeted, rule-based marketing campaigns
+* Track customer orders and engagement
+* Personalize messages using AI suggestions
 
-- **Frontend**: React.js application built with Vite
-- **Backend**: Node.js with Express.js
-- **Database**: MongoDB with Mongoose ORM
+### 🧱 Tech Stack
 
-### Directory Structure
+* **Frontend:** React.js (Vite, Tailwind CSS)
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (Mongoose)
+* **Authentication:** Google OAuth + JWT
+* **AI:** Gemini-powered message generation
 
-```
+---
+
+## 🗂️ Directory Structure
+
+```bash
 /xeno-crm
-├── /frontend           # React.js client application
-│   ├── /public         # Static assets
-│   ├── /src            # React components and logic
+├── /frontend           # React application
+│   ├── /src/pages      # Pages (Login, Dashboard, Campaigns, etc.)
 │   └── vite.config.js  # Vite configuration
 │
-├── /backend            # Node.js server application
-│   ├── /configs        # Configuration files
-│   ├── /controllers    # Route controllers
-│   ├── /middleware     # Express middleware
-│   ├── /models         # Mongoose data models
-│   ├── /routes         # API routes
-│   ├── /scripts        # Utility scripts
-│   └── app.js          # Express application entry point
+├── /backend            # Node.js Express server
+│   ├── /models         # Mongoose schemas
+│   ├── /routes         # API endpoints
+│   ├── /middleware     # Auth middleware
+│   ├── /controllers    # Logic for routes
+│   ├── /scripts        # Seeder utilities
+│   └── app.js          # App entry point
 ```
 
-## Key Features
+---
 
-### Customer Management
-- Store and manage customer profiles
-- Track customer spending and visit history
-- View customer order history
+## ✨ Key Features
 
-### Campaign Management
-- Create targeted marketing campaigns
-- Advanced customer filtering based on specific rules:
-  - Filter by customer spending amounts
-  - Filter by number of visits
-  - Filter by days of inactivity
-- Combine multiple rules using logical operators (AND/OR)
-- Support for various comparison operators (>, <, >=, <=, ==)
+### 👥 Customer Management
 
-### Order Tracking
-- Track and manage customer orders
-- View order history and details
-- Calculate lifetime customer value
+* View, filter, and manage customers
+* Track lifetime spend, last visit, and order history
 
-### User Authentication
-- Secure user authentication
-- Role-based access control
+### 📢 Campaign Builder
 
-### AI Integration
-- AI-powered insights and recommendations
+* Rule-based campaign targeting (spend, visits, inactivity)
+* Support for logical operators (AND/OR) and comparison operators (>, <, >=, <=, ==)
+* AI-generated campaign message suggestions (using Gemini API)
+* Real-time preview and delivery tracking
 
-## Setup and Installation
+### 📦 Order Management
 
-### Prerequisites
-- Node.js (v14+)
-- MongoDB
-- npm or yarn
+* Manage and filter customer orders
+* Track order totals and frequency
+* Update customer stats post-order
 
-### Backend Setup
-1. Navigate to the backend directory:
-   ```
-   cd backend
-   ```
+### 🔒 Authentication
 
-2. Install dependencies:
-   ```
-   npm install
-   ```
+* Secure Google OAuth login
+* Token-based route protection
 
-3. Create a `.env` file with the following variables:
-   ```
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   PORT=5000
-   ```
+---
 
-4. Start the server:
-   ```
-   npm start
-   ```
+## 🛠️ Setup Instructions
 
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```
-   cd frontend
-   ```
+### 📦 Backend Setup
 
-2. Install dependencies:
-   ```
-   npm install
-   ```
-
-3. Create a `.env` file with the following variables:
-   ```
-   VITE_API_URL=http://localhost:5000/api
-   ```
-
-4. Start the development server:
-   ```
-   npm run dev
-   ```
-
-## Usage Guide
-
-### Creating Campaigns
-1. Navigate to the Campaigns section
-2. Click "Create New Campaign"
-3. Define campaign rules using the rule builder:
-   - Select customer attributes (spend, visits, inactive_days)
-   - Choose comparison operators (>, <, >=, <=, ==)
-   - Set threshold values
-   - Combine rules with logical operators (AND/OR)
-4. Compose your campaign message
-5. Review the filtered customer list
-6. Save and launch the campaign
-
-### Managing Customers
-1. Navigate to the Customers section
-2. View the list of all customers
-3. Click on a customer to view their details
-4. Edit customer information as needed
-5. View order history and communication logs
-
-### Tracking Orders
-1. Navigate to the Orders section
-2. View all orders or filter by customer
-3. Click on an order to view details
-4. Update order status as needed
-
-## API Documentation
-
-The backend provides a RESTful API for interacting with the system:
-
-### Authentication Endpoints
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login and get authentication token
-
-### Customer Endpoints
-- `GET /api/customers` - Get all customers
-- `POST /api/customers` - Create a new customer
-- `GET /api/customers/:id` - Get customer details
-- `PUT /api/customers/:id` - Update customer information
-
-### Campaign Endpoints
-- `GET /api/campaigns` - Get all campaigns
-- `POST /api/campaigns` - Create a new campaign
-- `GET /api/campaigns/:id` - Get campaign details
-- `PUT /api/campaigns/:id` - Update campaign information
-
-### Order Endpoints
-- `GET /api/orders` - Get all orders
-- `POST /api/orders` - Create a new order
-- `GET /api/orders/:id` - Get order details
-
-## Technologies Used
-
-### Frontend
-- React.js
-- Vite
-- React Router
-- Tailwind CSS
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB with Mongoose
-- JSON Web Tokens (JWT) for authentication
-
-
-## Development Utilities
-
-### Data Seeders
-
-The application includes powerful seeder scripts to populate the database with realistic test data for development and testing purposes.
-
-#### Customer Seeder
-
-The `seedCustomers.js` script generates a comprehensive set of dummy customer records with diverse profiles:
-
-- Creates 50+ customer profiles with varied attributes
-- Each customer has name, email, phone, last_order_date, lifetime_spend, and visits
-- Spending ranges from ₹2,800 to ₹24,700
-- Visit counts range from 3 to 37
-- Order dates span across different months
-
-To run the customer seeder:
+```bash
+cd backend
+npm install
 ```
+
+Create a `.env` file in `/backend`:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+MONGODB_CONNECTION_STRING=your_mongo_uri
+JWT_SECRET=your_jwt_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+PORT=5000
+```
+
+Run the server:
+
+```bash
+npm start
+```
+
+### 💻 Frontend Setup
+
+```bash
+cd frontend
+npm install
+```
+
+Create a `.env` file in `/frontend`:
+
+```env
+VITE_API_URL=https://your-backend-url.vercel.app/api
+```
+
+Start the frontend locally:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🧪 Data Seeder Scripts
+
+### 1. Seed Customers
+
+```bash
 cd backend
 node script/seedCustomers.js
 ```
 
-#### Order Seeder
+* Adds 50+ mock customers
+* Varied spending, visits, and order dates
 
-The `seedOrders.js` script creates realistic order data and updates customer statistics:
+### 2. Seed Orders
 
-- Generates 50-100 random orders
-- Includes mock product data for 15 different products with realistic price ranges
-- Each order contains 1-3 unique items with random quantities
-- Order dates are distributed between January and June 2025
-- Automatically calculates total order amounts based on item prices and quantities
-- Updates each customer's lifetime_spend, visit count, and last_order_date based on their orders
-
-To run the order seeder (after seeding customers):
-```
+```bash
 cd backend
 node script/seedOrders.js
 ```
 
+* Generates realistic orders using mock products
+* Updates customer lifetime spend and visits
 
+---
+
+## 💡 Usage Guide
+
+### ➕ Create Campaign
+
+1. Go to "Create Campaign"
+2. Add rules: `spend > 10000`, `inactive_days < 30`, etc.
+3. Use AI button to auto-generate message
+4. Launch and see delivery summary with status per customer
+
+### 👁️ View Campaigns
+
+* Dashboard shows recent and total campaigns
+* Each card links to detailed logs
+
+### 📇 Manage Customers
+
+* Navigate to "Customers"
+* View or search customer list
+* See past orders and spend
+
+### 📃 View Orders
+
+* View full order history
+* Filter by customer or date
+
+---
+
+## 🔗 API Endpoints (REST)
+
+### 🔐 Authentication
+
+* `POST /api/auth/google` - Google login
+
+### 👥 Customers
+
+* `GET /api/customers`
+* `POST /api/customers`
+* `GET /api/customers/:id`
+
+### 📢 Campaigns
+
+* `POST /api/campaigns`
+* `GET /api/campaigns`
+* `GET /api/campaigns/:id`
+
+### 🧠 AI Suggestions
+
+* `POST /api/ai/generate-message`
+
+### 📨 Communication Logs
+
+* `GET /api/logs/:campaignId`
+
+### 📦 Orders
+
+* `GET /api/orders`
+* `POST /api/orders`
+* `GET /api/orders/:id`
+
+---
+
+## 🧠 AI Message Generation
+
+The campaign builder includes an AI-powered prompt:
+
+* Uses rules to suggest messages
+* Personalized with `{{name}}`
+* Under 200 characters
+
+Example:
+
+> "Hey {{name}}, we noticed you've been active! Enjoy 20% off on your next visit this week!"
+
+---
+
+## 📦 Deployment Notes
+
+* Frontend hosted on Vercel (React/Vite)
+* Backend deployed to Vercel as a separate project (Express)
+* Google OAuth configured with:
+
+    * **Authorized JavaScript Origins:** `https://your-frontend.vercel.app`
+    * **Authorized Redirect URIs:** `https://your-backend.vercel.app/api/auth/google/callback` (if using redirect)
+
+---
+
+
+## 👨‍💻 Author
+
+Sumit Kumar Jha
