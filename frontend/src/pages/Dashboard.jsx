@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Plus, Eye, LogOut, User, Sparkles } from "lucide-react";
+import { Plus, Eye, LogOut, User, Sparkles, Users, ShoppingBag } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
@@ -34,7 +34,15 @@ export default function Dashboard() {
     };
 
     const navigateToCampaigns = () => {
-        navigate("/campaigns");
+        navigate("/campaign");
+    };
+
+    const navigateToCustomers = () => {
+        navigate("/customers");
+    };
+
+    const navigateToOrders = () => {
+        navigate("/orders");
     };
 
     return (
@@ -82,7 +90,7 @@ export default function Dashboard() {
                     <p className="text-gray-600">Manage your campaigns and grow your business.</p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 max-w-2xl">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
                     <button
                         onClick={navigateToCreateCampaign}
                         className="group p-8 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md hover:border-indigo-200 transition-all duration-200 text-left"
@@ -116,6 +124,42 @@ export default function Dashboard() {
                         </div>
                         <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
                             <div className="h-full bg-gradient-to-r from-purple-500 to-pink-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        </div>
+                    </button>
+
+                    <button
+                        onClick={navigateToCustomers}
+                        className="group p-8 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md hover:border-emerald-200 transition-all duration-200 text-left"
+                    >
+                        <div className="flex items-center space-x-4 mb-4">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
+                                <Users className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold text-gray-900">View Customers</h3>
+                                <p className="text-sm text-gray-500">Manage customer database</p>
+                            </div>
+                        </div>
+                        <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        </div>
+                    </button>
+
+                    <button
+                        onClick={navigateToOrders}
+                        className="group p-8 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md hover:border-amber-200 transition-all duration-200 text-left"
+                    >
+                        <div className="flex items-center space-x-4 mb-4">
+                            <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                                <ShoppingBag className="w-6 h-6 text-amber-600" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold text-gray-900">View Orders</h3>
+                                <p className="text-sm text-gray-500">Track purchase history</p>
+                            </div>
+                        </div>
+                        <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                         </div>
                     </button>
                 </div>
